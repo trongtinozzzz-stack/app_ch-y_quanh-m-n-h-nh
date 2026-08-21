@@ -131,13 +131,11 @@ def generate_wav_sound(filename, duration=0.25, freq_start=600, freq_end=1200):
 
 def main():
     import process_anya_sprites
-    print("Default Anya mascot sprites generated.")
-
-    # Generate interactive sounds
-    generate_wav_sound("pop1.wav", duration=0.18, freq_start=500, freq_end=900)
-    generate_wav_sound("pop2.wav", duration=0.22, freq_start=800, freq_end=1400)
-    generate_wav_sound("meow.wav", duration=0.35, freq_start=600, freq_end=1100)
+    import generate_sounds
+    generate_sounds.main()
+    print("All Anya mascot sprites and 10 cute sound effects generated successfully!")
 
 if __name__ == "__main__":
     main()
+
 
