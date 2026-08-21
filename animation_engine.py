@@ -56,6 +56,13 @@ class AnimationEngine(QObject):
         self.timer.start(30)
 
     def load_sprites(self):
+        self.sprites = {
+            PetState.IDLE: [],
+            PetState.WALK_LEFT: [],
+            PetState.WALK_RIGHT: [],
+            PetState.DRAGGED: [],
+            PetState.CLICKED: []
+        }
         def load_pixmap(filename):
             path = os.path.join(self.sprites_dir, filename)
             if os.path.exists(path):
