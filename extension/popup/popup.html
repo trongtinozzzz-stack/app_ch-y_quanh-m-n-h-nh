@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop Pet Mascot - Anya</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="header">
+      <img src="../icons/icon48.png" alt="Anya" class="header-avatar" />
+      <div class="header-info">
+        <h2>Anya Forger 🎀</h2>
+        <span class="badge">Desktop Mascot</span>
+      </div>
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="quick-actions">
+      <button id="btn-playground" class="btn-action primary">
+        <span>🎮</span> Sân chơi Anya
+      </button>
+      <button id="btn-open-google" class="btn-action secondary">
+        <span>🌐</span> Mở Google.com
+      </button>
+    </div>
+
+    <button id="btn-summon" class="btn-summon-wide">
+      <span>✨</span> Triệu hồi Anya ra trang hiện tại
+    </button>
+
+    <!-- Toggle Controls -->
+    <div class="card">
+      <div class="control-row">
+        <span>🌸 Bật hiển thị Pet</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-enabled" checked />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="control-row">
+        <span>🔊 Âm thanh hiệu ứng</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-sound" checked />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Sliders -->
+    <div class="card">
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Kích thước Mascot</span>
+          <span id="scale-val" class="val-badge">100%</span>
+        </div>
+        <input type="range" id="slider-scale" min="50" max="150" value="100" />
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Tốc độ đi dạo</span>
+          <span id="speed-val" class="val-badge">3</span>
+        </div>
+        <input type="range" id="slider-speed" min="1" max="8" value="3" />
+      </div>
+    </div>
+
+    <!-- Gemini API Key -->
+    <div class="card">
+      <label class="input-label" for="api-key">Gemini AI Key (Hỏi đáp):</label>
+      <input type="password" id="api-key" placeholder="AQ.Ab8RN6JX..." />
+      <small class="help-text">Dùng để trò chuyện với bé Anya trên bất kỳ trang web nào.</small>
+    </div>
+
+    <!-- Footer buttons -->
+    <div class="footer">
+      <button id="save-btn" class="btn-save">💾 Lưu cài đặt</button>
+    </div>
+    <div id="status-msg" class="status-msg"></div>
+
+    <div class="tip-box">
+      <span>⚠️ <b>Lưu ý:</b> Chrome <u>chặn</u> tiện ích trên trang <code>chrome://extensions</code>. Hãy bấm <b>"🎮 Sân chơi Anya"</b> hoặc mở <b>Google.com</b> để thấy bé Anya nhé!</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

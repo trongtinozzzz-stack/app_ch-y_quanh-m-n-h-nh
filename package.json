@@ -1,0 +1,22 @@
+{
+  "name": "desktop-pet-mascot-electron",
+  "version": "1.0.0",
+  "description": "Cute Desktop Pet Mascot running on Windows Desktop built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "keywords": [
+    "desktop-pet",
+    "mascot",
+    "electron",
+    "anya",
+    "overlay"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.2.1"
+  }
+}

@@ -1,0 +1,207 @@
+/* Scoped styles for Chrome Extension Desktop Pet Mascot - No Clipping & GPU Accelerated */
+#anya-pet-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  user-select: none;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+#anya-pet-root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.anya-pet-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: auto;
+  cursor: grab;
+  z-index: 2147483647;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  overflow: visible !important;
+  padding-bottom: 6px;
+}
+
+.anya-pet-container.grabbing {
+  cursor: grabbing;
+}
+
+/* Speech Bubble - Fixed Headroom and No Clipping */
+.anya-bubble {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: rgba(26, 20, 36, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 182, 193, 0.5);
+  border-radius: 14px;
+  padding: 7px 12px;
+  max-width: 185px;
+  min-width: 80px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 12px rgba(255, 107, 129, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2147483647;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.anya-bubble.visible {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+
+.anya-bubble-text {
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #ffeef2;
+  word-break: break-word;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.anya-bubble-arrow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 9px;
+  height: 9px;
+  background: rgba(26, 20, 36, 0.94);
+  border-right: 1.5px solid rgba(255, 182, 193, 0.5);
+  border-bottom: 1.5px solid rgba(255, 182, 193, 0.5);
+}
+
+/* Chat Input Bar */
+.anya-chat-box {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: rgba(30, 22, 45, 0.96);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid #ff758c;
+  border-radius: 20px;
+  padding: 3px 6px 3px 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  z-index: 2147483647;
+  width: 185px;
+  will-change: transform, opacity;
+}
+
+.anya-chat-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 11px;
+  font-family: inherit;
+}
+
+.anya-chat-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.anya-chat-box button {
+  background: #ff6b81;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  transition: transform 0.15s ease;
+}
+
+.anya-chat-box button:hover {
+  transform: scale(1.1);
+  background: #ff4757;
+}
+
+/* Pet Sprite */
+.anya-sprite-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.anya-sprite-wrapper img {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.anya-shadow {
+  width: 65px;
+  height: 9px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 75%);
+  border-radius: 50%;
+  margin-top: -3px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Floating Particles */
+.anya-particle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 16px;
+  z-index: 2147483647;
+  animation: anyaParticleAnim 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes anyaParticleAnim {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(0.6) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -30px, 0) scale(1.2) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0) scale(0.8) rotate(-15deg);
+  }
+}
+
+.anya-hidden {
+  display: none !important;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desktop Pet Mascot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="no-select">
+  <div id="pet-container" class="pet-container">
+    <!-- Speech Bubble -->
+    <div id="speech-bubble" class="speech-bubble">
+      <div id="bubble-text" class="bubble-text">Waku Waku! ✨</div>
+      <div id="bubble-arrow" class="bubble-arrow"></div>
+    </div>
+
+    <!-- AI Chat Input Box (Appears when chatting) -->
+    <div id="chat-box" class="chat-box hidden">
+      <input type="text" id="chat-input" placeholder="Hỏi Anya điều gì đó..." autocomplete="off" />
+      <button id="chat-send-btn" title="Gửi">🌸</button>
+    </div>
+
+    <!-- Pet Mascot Image & Canvas -->
+    <div id="pet-sprite-wrapper" class="pet-sprite-wrapper">
+      <img id="pet-image" src="../assets/sprites/idle_1.png" alt="Desktop Pet" draggable="false" />
+      <div id="pet-shadow" class="pet-shadow"></div>
+    </div>
+
+    <!-- Particles Effect Container -->
+    <div id="particles-container" class="particles-container"></div>
+  </div>
+
+  <!-- Custom Glassmorphic Context Menu -->
+  <div id="context-menu" class="glass-menu hidden">
+    <div class="menu-header">
+      <span class="pet-title">Anya Forger 🎀</span>
+    </div>
+    <div class="menu-item" id="menu-chat">
+      <span class="icon">💬</span> Trò chuyện Gemini AI
+    </div>
+    <div class="menu-item" id="menu-custom-avatar">
+      <span class="icon">✨</span> Đổi ảnh Mascot / Chibi
+    </div>
+    <div class="menu-item" id="menu-restore-anya">
+      <span class="icon">🔄</span> Khôi phục Anya gốc
+    </div>
+    <div class="menu-divider"></div>
+    <div class="menu-item" id="menu-toggle-sound">
+      <span class="icon" id="sound-icon">🔊</span> <span id="sound-text">Âm thanh: Bật</span>
+    </div>
+    <div class="menu-item" id="menu-settings">
+      <span class="icon">⚙️</span> Cài đặt & Tuỳ chỉnh
+    </div>
+    <div class="menu-divider"></div>
+    <div class="menu-item menu-quit" id="menu-quit">
+      <span class="icon">❌</span> Thoát ứng dụng
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal-overlay hidden">
+    <div class="glass-modal">
+      <div class="modal-header">
+        <h3>⚙️ Cài đặt Desktop Pet</h3>
+        <button id="close-settings-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-row">
+          <label>Kích thước Pet: <span id="scale-value">100%</span></label>
+          <input type="range" id="scale-slider" min="50" max="150" value="100" />
+        </div>
+        <div class="setting-row">
+          <label>Tốc độ đi dạo: <span id="speed-value">3</span></label>
+          <input type="range" id="speed-slider" min="1" max="8" value="3" />
+        </div>
+        <div class="setting-row">
+          <label>Gemini API Key (Hỏi đáp AI):</label>
+          <input type="password" id="api-key-input" placeholder="Nhập API Key hoặc để trống" />
+          <p class="setting-hint">Dùng để kích hoạt tính năng chat trực tiếp với bé Anya.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="save-settings-btn" class="btn-primary">💾 Lưu cài đặt</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
